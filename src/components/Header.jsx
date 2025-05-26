@@ -17,7 +17,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
             </div>
             <div>
               <h1 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                EventFlow
+                EventSync
               </h1>
               <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                 Manage your events with style

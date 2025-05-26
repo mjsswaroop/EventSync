@@ -8,7 +8,7 @@ const Footer = ({ isDarkMode }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className={`text-lg font-bold ${isDarkMode ? 'text-pink-300' : 'text-pink-700'} mb-4`}>
-              EventFlow
+              EventSync
             </h3>
             <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm`}>
               Your ultimate event management solution. Organize, track, and never miss important moments.
@@ -53,7 +53,7 @@ const Footer = ({ isDarkMode }) => {
         
         <div className={`border-t ${isDarkMode ? 'border-pink-400/30' : 'border-pink-500/40'} mt-8 pt-6 text-center`}>
           <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-sm`}>
-            © 2025 EventFlow. This page belongs to Jyothi Sai Swaroop Mareedu.  Created for Flam Assignment. All rights reserved.
+            © 2025 EventSync. This page belongs to Jyothi Sai Swaroop Mareedu.  Created for Flam Assignment. All rights reserved.
           </p>
         </div>
       </div>
