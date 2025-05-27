@@ -66,6 +66,15 @@ EventSync is a comprehensive event management application designed to help users
 - Date Handling: date-fns or moment.js
 - Form Handling: Formik or custom hooks
 
+## Deployed website link
+
+[Deployed link](https://event-sync-zeta.vercel.app/)
+
+## Project Demo Video
+
+[Watch the video on Google Drive](https://drive.google.com/file/d/1yeBzieWQ3ECKOh79LbbOovp2LJbQMnVU/view?usp=sharing)
+
+
 ## Screenshots
 
 ![Dashboard View Dark Theme](https://github.com/mjsswaroop/EventSync/blob/7f6bbb137901e76ad852eadc8a01bc618ebf63d8/screenshots/dashboard.png)
