@@ -1,6 +1,4 @@
-
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { X, Calendar, Repeat, Trash2 } from 'lucide-react';
 
 const EventModal = ({
@@ -23,20 +21,44 @@ const EventModal = ({
   setEventCategory,
   eventColor,
   setEventColor,
-  eventRecurrence,
-  setEventRecurrence,
-  recurrenceEndDate,
-  setRecurrenceEndDate,
-  recurrenceCount,
-  setRecurrenceCount,
   onSave,
   onDelete,
   isFormValid,
   categories = [],
   eventColors = [],
-  recurrenceOptions = [],
   setIsHovering = () => {}
 }) => {
+  const [eventRecurrence, setEventRecurrence] = useState('none');
+  const [recurrenceEndDate, setRecurrenceEndDate] = useState('');
+  const [recurrenceCount, setRecurrenceCount] = useState(1);
+
+  const recurrenceOptions = [
+    { value: 'none', label: 'No Repeat' },
+    { value: 'daily', label: 'Daily' },
+    { value: 'weekly', label: 'Weekly' },
+    { value: 'monthly', label: 'Monthly' },
+    { value: 'yearly', label: 'Yearly' }
+  ];
+
+  useEffect(() => {
+    if (editingEvent) {
+      setEventTitle(editingEvent.title || '');
+      setEventTime(editingEvent.time || '12:00');
+      setEventEndTime(editingEvent.endTime || '13:00');
+      setEventDescription(editingEvent.description || '');
+      setEventLocation(editingEvent.location || '');
+      setEventColor(editingEvent.color || 'bg-gradient-to-r from-pink-400 to-rose-500');
+      setEventCategory(editingEvent.category || 'work');
+      setEventRecurrence(editingEvent.recurrence || 'none');
+      setRecurrenceEndDate(editingEvent.recurrenceEndDate || '');
+      setRecurrenceCount(editingEvent.recurrenceCount || 1);
+    } else {
+      setEventRecurrence('none');
+      setRecurrenceEndDate('');
+      setRecurrenceCount(1);
+    }
+  }, [editingEvent]);
+
   if (!isOpen) return null;
 
   const formatDateForInput = (date) => {
@@ -308,7 +330,11 @@ const EventModal = ({
               Cancel
             </button>
             <button
-              onClick={onSave}
+              onClick={() => onSave({
+                recurrence: eventRecurrence,
+                recurrenceEndDate,
+                recurrenceCount
+              })}
               disabled={!isFormValid()}
               className={`flex-1 px-6 py-3 ${isFormValid() 
                 ? 'bg-gradient-to-r from-pink-400 to-pink-600 hover:from-pink-500 hover:to-pink-700 text-white hover:scale-105' 
